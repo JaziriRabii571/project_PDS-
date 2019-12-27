@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Navbar from './navbar/navbar';
+import Movie from './movies/movie';
+import Ctontine from './ctontine/ctontine';
+import Participants from './participants/participants';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+  render() {
+    return (
+
+      <Router>
+
+        <Navbar />
+        <Switch>
+          <Route path='/' exact >
+            <Movie />
+          </Route>
+          <Route path='/tontine'>
+            <Ctontine />
+          </Route>
+          <Route path='/participant'>
+            <Participants />
+          </Route>
+          <Route path='**'>
+            <Redirect to='/' />
+          </Route>
+
+        </Switch>
+
+      </Router>
+
+
+
+    );
+  }
 }
 
 export default App;
