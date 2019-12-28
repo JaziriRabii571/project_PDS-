@@ -9,3 +9,11 @@ export const create_tontine = params => {
 export const create_participant = params => {
     return axios.post(`${URL}addParticipant`, params)
 }
+
+export const create_user = params => {
+    return axios.post(`${URL}createuser`, params)
+}
+
+export const add_token = params => {
+    return axios.post(`${URL}addNewToken`, params)
+}
