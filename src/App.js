@@ -3,6 +3,7 @@ import Navbar from './navbar/navbar';
 import Movie from './movies/movie';
 import Ctontine from './ctontine/ctontine';
 import Participants from './participants/participants';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,6 +20,7 @@ class App extends Component {
       <Router>
 
         <Navbar />
+       
         <Switch>
           <Route path='/' exact >
             <Movie />
