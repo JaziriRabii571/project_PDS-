@@ -3,6 +3,7 @@ import Navbar from './navbar/navbar';
 import Movie from './movies/movie';
 import Ctontine from './ctontine/ctontine';
 import Participants from './participants/participants';
+import createuser from './user/createuser';
 
 import {
   BrowserRouter as Router,
@@ -10,6 +11,8 @@ import {
   Route,
   Redirect
 } from 'react-router-dom'
+import Createuser from './user/createuser';
+
 
 
 
@@ -20,6 +23,8 @@ class App extends Component {
       <Router>
 
         <Navbar />
+        
+       
        
         <Switch>
           <Route path='/' exact >
@@ -30,6 +35,9 @@ class App extends Component {
           </Route>
           <Route path='/participant'>
             <Participants />
+          </Route>
+          <Route path='/createuser'>
+            <Createuser />
           </Route>
           <Route path='**'>
             <Redirect to='/' />
