@@ -12,6 +12,7 @@ import {
   Redirect
 } from 'react-router-dom'
 import Createuser from './user/createuser';
+import Addtoken from './token/addtoken';
 
 
 
@@ -38,6 +39,9 @@ class App extends Component {
           </Route>
           <Route path='/createuser'>
             <Createuser />
+          </Route>
+          <Route path='/addtoken'>
+            <Addtoken />
           </Route>
           <Route path='**'>
             <Redirect to='/' />
