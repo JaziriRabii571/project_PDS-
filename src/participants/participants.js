@@ -1,67 +1,85 @@
-import React , {Component} from 'react';
-import  "./participants.css";
+import React, { Component } from 'react';
+import "./participants.css";
+import { create_participant } from '../Service/Service';
 
 
 class Participants extends Component {
-    render(){
-       
-     return(
-         <div className="wraper">
-             <div className="form-wraper">
-                 
-                 <form >
-                     <div className="idName">
-                         <label htmlFor="idName">ID-Tontine</label>
-                         <input type="text" 
-                          className="" 
-                          placeholder="id-Tontine"
-                           type="text"
-                            name="firstName">
 
-                            </input>
-                            </div>
-                           
-                            <div className="ordre">
-                         <label htmlFor="ordre">Ordre</label>
-                         <input type="text" 
-                          className="" 
-                          placeholder="ordre"
-                           type="text"
-                            name="ordre">
+    constructor(props) {
+        super(props)
 
-                            </input>
-                            </div>
-                            
-
-
-
-
-
-                            <div className="ddParticipant">
-              <button type="submit">ADD*Participant</button>
-              
-            </div>
-                 </form>
-
-
-
-
-
-
-             </div>
-
-
-
-
-
-
-         </div>
-
-     );
-     
-       
+        this.state = {
+            _ID_Tontine: '',
+            ordre: ''
+        }
     }
- 
+
+    createParticipant = event => {
+        event.preventDefault()
+        create_participant(this.state)
+    }
+
+    handleInput = event => {
+        this.setState({
+            ...this.state,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    render() {
+
+        return (
+            <div className="wraper">
+                <div className="form-wraper">
+
+                    <form onSubmit={this.createParticipant}>
+                        <div className="idName">
+                            <label htmlFor="idName">ID-Tontine</label>
+                            <input type="text"
+                                onChange={this.handleInput}
+                                className=""
+                                placeholder="id-Tontine"
+                                type="text"
+                                name="_ID_Tontine">
+
+                            </input>
+                        </div>
+                        <div className="ordre">
+                            <label htmlFor="ordre">Ordre</label>
+                            <input type="text"
+                                onChange={this.handleInput}
+                                className=""
+                                placeholder="ordre"
+                                type="text"
+                                name="ordre">
+
+                            </input>
+                        </div>
+                        <div className="ddParticipant">
+                            <button type="submit">ADD*Participant</button>
+
+                        </div>
+                    </form>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+        );
+
+
+    }
+
 }
 
 export default Participants;
